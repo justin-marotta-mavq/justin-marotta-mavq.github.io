@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <title>Justin Marotta's Prototpypes</title>
-    <meta name="description" content="Justin Marotta's Prototypes">
+    <title>New Mexico Dashboards</title>
+    <meta name="description" content="New Mexico dashboards">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <body>
         <header>
-            <h1>Justin Marotta's Prototypes</h1>
+            <h1>New Mexico Dashboards</h1>
         </header>
 
         <div id="content">
             <div id="nav">
-                <a href="dashboards.html">New Mexico Dashboards</a>
+                <button onclick="setIframeUrl('federal_funds_dashboard.html')">Federal Funds Dashboard</button>
+                <button onclick="setIframeUrl('food_initiative_dashboard.html')">Food Initiative Dashboard</button>
             </div>
 
             <iframe src="" frameborder="0"></iframe>
@@ -50,7 +51,7 @@
             border-radius: 12px;
             box-shadow: 0 0 12px 0 rgba(0,0,0,0.12);
         }
-        #nav a {
+        #nav button {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -75,4 +76,9 @@
             margin: 60px auto 0 auto;
         }
     </style>
+    <script>
+        function setIframeUrl(url) {
+            document.querySelector('iframe').src = url;
+        }
+    </script>
 </html>
