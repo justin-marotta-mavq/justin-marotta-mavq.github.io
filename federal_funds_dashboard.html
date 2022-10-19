@@ -1,14 +1,14 @@
 <html>
 	<script src="https://public.tableau.com/javascripts/api/tableau-2.9.1.min.js"></script>
-
 	<div id="mavQContainer">
+		<button onclick="printFun()" style="width: 100px; height: 100px; z-index: 1; color: black; background-color: red;">Download</button>
 		<button id="resetDashboard"><p id="resetArrow">&#8634;</p>Reset</button>
 		<div id="mainContent">
 			<div id="navPanel">
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_01-SHAREFederalFundingbyAgency/FF_01SHAREFederalFundingbyAgency?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1850, 'https://public.tableau.com/views/FF_01-SHAREFederalFundingbyAgency/FF_01SHAREFederalFundingbyAgency?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_01</p>
-						<p>SHARE Federal Funding by Agency</p>
+						<p class="radioText">SHARE Federal Funding by Agency</p>
 					</span>
 					<p class="star">&#9733;</p>
 					<input type="radio">
@@ -16,10 +16,10 @@
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_02-CoronavirusFederalFundsGrantedtoNewMexico/FF_02CoronavirusFederalFundsGrantedtoNewMexico?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1450, 'https://public.tableau.com/views/FF_02-CoronavirusFederalFundsGrantedtoNewMexico/FF_02CoronavirusFederalFundsGrantedtoNewMexico?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_02</p>
-						<p>Coronavirus Federal Funds Granted to New Mexico</p>
+						<p class="radioText">Coronavirus Federal Funds Granted to New Mexico</p>
 					</span>
 					<p class="star">&#9733;</p>
 					<input type="radio">
@@ -27,10 +27,10 @@
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_03-SHARECombinedDetailedFederalData/FF_03SHARECombinedDetailedFederalData?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1550, 'https://public.tableau.com/views/FF_03-SHARECombinedDetailedFederalData/FF_03SHARECombinedDetailedFederalData?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_03</p>
-						<p>SHARE Combined Detail Federal Data</p>
+						<p class="radioText">SHARE Combined Detail Federal Data</p>
 					</span>
 					<p class="star">&#9733;</p>
 					<input type="radio">
@@ -38,70 +38,70 @@
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_04-ARPALegislativeAppropriations/FF_04ARPALegislativeAppropriations?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1550, 'https://public.tableau.com/views/FF_04-ARPALegislativeAppropriations/FF_04ARPALegislativeAppropriations?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_04</p>
-						<p>ARPA Legislative Appropriations</p>
+						<p class="radioText">ARPA Legislative Appropriations</p>
 					</span>
 					<input type="radio">
 					<span class="arrowBackground">
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_05-StateAgency-SelfReportingFederalFunds/FF_05StateAgency-SelfReportingFederalFunds?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1550, 'https://public.tableau.com/views/FF_05-StateAgency-SelfReportingFederalFunds/FF_05StateAgency-SelfReportingFederalFunds?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_05</p>
-						<p>State Agency - Self Reporting Federal Funds</p>
+						<p class="radioText">State Agency - Self Reporting Federal Funds</p>
 					</span>
 					<input type="radio">
 					<span class="arrowBackground">
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_06-EmergencyRentalAssistanceProgram/FF_06EmergencyRentalAssistanceProgram?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1786, 'https://public.tableau.com/views/FF_06-EmergencyRentalAssistanceProgram/FF_06EmergencyRentalAssistanceProgram?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_06</p>
-						<p>Emergency Rental Assistance Program</p>
+						<p class="radioText">Emergency Rental Assistance Program</p>
 					</span>
 					<input type="radio">
 					<span class="arrowBackground">
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_07-ARPALocalFundingNEUs/FF_07-ARPALocalFundingNEUs?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1786, 'https://public.tableau.com/views/FF_07-ARPALocalFundingNEUs/FF_07-ARPALocalFundingNEUs?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_07</p>
-						<p>ARPA Local Funding (NEUs)</p>
+						<p class="radioText">ARPA Local Funding (NEUs)</p>
 					</span>
 					<input type="radio">
 					<span class="arrowBackground">
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_08-CompetitiveFederalGrantResourcesAvailable/FF_08CompetitiveFederalGrantResourcesAvailable?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1550, 'https://public.tableau.com/views/FF_08-CompetitiveFederalGrantResourcesAvailable/FF_08CompetitiveFederalGrantResourcesAvailable?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_08</p>
-						<p>Competitive Federal Grant Resources Available</p>
+						<p class="radioText">Competitive Federal Grant Resources Available</p>
 					</span>
 					<input type="radio">
 					<span class="arrowBackground">
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_07-ARPALocalFundingNEUs/FF_09-LargeCityDirectFederalAllocations?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1580, 'https://public.tableau.com/views/FF_07-ARPALocalFundingNEUs/FF_09-LargeCityDirectFederalAllocations?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_09</p>
-						<p>Large City Direct Federal Allocations</p>
+						<p class="radioText">Large City Direct Federal Allocations</p>
 					</span>
 					<input type="radio">
 					<span class="arrowBackground">
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/FF_099-AboutARPAandGlossary/FF_99AboutARPAandGlossary?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
-					<span class="radioText">
+				<div class="navRadioButton" onclick="onSwitchDashboard(1828, 'https://public.tableau.com/views/FF_099-AboutARPAandGlossary/FF_99AboutARPAandGlossary?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
 						<p class="code">FF_99</p>
-						<p>Glossary and About ARPA</p>
+						<p class="radioText">Glossary and About ARPA</p>
 					</span>
 					<input type="radio">
 					<span class="arrowBackground">
@@ -193,8 +193,12 @@
 			opacity: 0;
 			cursor: pointer;
 		}
-		.radioText {
+		.radioTextContainer {
 			margin: 9px;
+			pointer-events: none;
+		}
+		.radioText {
+			margin: 0;
 			pointer-events: none;
 		}
 		.code {
@@ -264,8 +268,8 @@
 		var url = "https://public.tableau.com/views/FF_01-SHAREFederalFundingbyAgency/FF_01SHAREFederalFundingbyAgency?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link";
 		var options = {
 			hideTabs: true,
-			width: "1500px",
-			height: "1900px",
+			width: "1300px",
+			height: "1880px",
 			onFirstInteractive: function() {
 				var resetButton = document.getElementById("resetDashboard");
 				resetButton.style.visibility = "visible";
@@ -273,7 +277,7 @@
 				resetButton.addEventListener("click", function() {
 					resetButton.style.backgroundColor = "#9D9A9A";
 					var url = viz.getWorkbook().getActiveSheet().getUrl();
-					switchDashboard(url);
+					switchDashboard(options.height, url);
 				});
 			}
 		};
@@ -294,19 +298,20 @@
 
 		checkRadioButton(radioButtons[0]);
 
-		function onSwitchDashboard(url) {
-			switchDashboard(url);
+		function onSwitchDashboard(height, url) {
+			switchDashboard(height, url);
 			uncheckRadioButtons();
 			checkRadioButton(event.target);
 		}
 
-		function switchDashboard(url) {
+		function switchDashboard(height, url) {
 			if (url == "") return;
 			viz.removeEventListener('filterchange', onFilterChange);
 			viz.removeEventListener('marksselection', onFilterChange);
 			viz.removeEventListener('parametervaluechange', onFilterChange);
 			viz.dispose();
 
+			options.height = height + 30 + "px";
 			viz = new tableau.Viz(placeholderDiv, url, options);
 			viz.addEventListener('filterchange', onFilterChange);
 			viz.addEventListener('marksselection', onFilterChange);
@@ -355,5 +360,61 @@
 				event.target.style.backgroundColor = "#fff";
 			}
 		}
+
+		function httpGet(theUrl) {
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.open("GET", "/api/api-version/sites/site-id/workbooks/workbook-id/pdf?type=page-type&orientation=page-orientation", false);
+			xmlHttp.send(null);
+			return xmlHttp.responseText;
+		}
 	</script>
+	<script type="text/javascript"> 
+        printfun = function(){ 
+            var url = window.parent.location.pathname; 
+            var paramval = GetParameterValues('id'); 
+            if (paramval) { 
+                var srcurl = window.parent.location.protocol + '//' + window.parent.location.hostname + paramval + '.pdf?'; 
+            } else {
+                var srcurl = window.parent.location.protocol + '//' + window.parent.location.hostname + window.parent.location.pathname + '.pdf?'; 
+            } 
+            var req = new XMLHttpRequest(); 
+            req.open("GET", srcurl, true); 
+            req.responseType = "blob"; 
+            req.onload = function (event) { 
+                var blob = req.response; 
+                var link = document.createElement("a"); 
+                link.href = window.URL.createObjectURL(blob); 
+                link.download = "new" + new Date() + ".pdf"; 
+                if (document.createEvent) { 
+                    if(navigator.userAgent.indexOf("MSIE") !== -1 || navigator.appVersion.indexOf("Trident/") > 0) { // IE 
+                        console.log("IE type browser detected") 
+                        window.navigator.msSaveBlob(blob, "new" + new Date() + ".pdf"); 
+                    }
+                    else { // FF, Chrome 
+                        console.log("Fire fox or Chrome detected"); 
+                        var event = document.createEvent("MouseEvents"); 
+                        event.initEvent("click", true, true); 
+                        link.dispatchEvent(event); 
+                    } 
+                }
+                else if (document.createEventObject) { // no idea of browser type 
+                    var evObj = document.createEventObject(); 
+                    link.fireEvent("onclick", evObj); 
+                }
+                else { // For any case 
+                    link.click(); 
+                }
+            } 
+            req.send(); 
+        } 
+        function GetParameterValues(param) {  
+          var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');  
+            for (var i = 0; i < url.length; i++) {  
+                var urlparam = url[i].split('=');  
+                if (urlparam[0] == param) {  
+                    return urlparam[1];  
+                }  
+            }  
+        }
+    </script>
 </html>
