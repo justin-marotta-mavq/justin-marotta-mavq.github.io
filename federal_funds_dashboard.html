@@ -4,7 +4,7 @@
 	<div id="mavQContainer">
 		<div id="mainContent">
 			<button id="resetDashboard"><p id="resetArrow">↺</p>RESET</button>
-			<p id="viewAsPDF" onclick="downloadPDF()">View as PDF</p>
+			<p id="viewAsPDF" onclick="downloadPDF()">View or Print PDF</p>
 			<div id="navPanel">
 				<div class="navRadioButton" onclick="onSwitchDashboard(1850, 'https://public.tableau.com/views/FF_01-SHAREFederalFundingbyAgency/FF_01SHAREFederalFundingbyAgency?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
 					<span class="radioTextContainer">
@@ -102,7 +102,7 @@
 				<div class="navRadioButton" onclick="onSwitchDashboard(1828, 'https://public.tableau.com/views/FF_099-AboutARPAandGlossary/FF_99AboutARPAandGlossary?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
 					<span class="radioTextContainer">
 						<p class="code">FF_99</p>
-						<p class="radioText">About ARPA and Glossary</p>
+						<p class="radioText">Glossary and About ARPA</p>
 					</span>
 					<input type="radio">
 					<span class="arrowBackground">
@@ -128,12 +128,14 @@
 			padding: 0;
 			display: flex;
 			flex-direction: column;
-			position: relative;
+      		position: relative;
 			top: -200px;
 			left: -152px;
      		width: 1524px;
 			height: 2000px;
 			font-size: 15px;
+			font-family: Arial, Helvetica, sans-serif;
+      		color: black;
 		}
 		#mainContent {
       		all: unset;
@@ -150,7 +152,6 @@
 			padding: 0;
 			position: absolute;
 			top: 12px;
-			left: 6px;
 			width: fit-content;
 			height: 30px;
 		}
@@ -159,10 +160,10 @@
 			color: #007097;
 		}
 		#resetDashboard {
-      		all: unset;
-			z-index: 1;
+			all: unset;
 			visibility: hidden;
-			pointer-events: none;
+			z-index: 1;
+			margin: 6px 0 0 0;
 			background-color: #9D9A9A;
 			color: white;
 			display: flex;
@@ -176,7 +177,7 @@
 			width: 90px;
 			position: absolute;
 			top: 45px;
-			left: 360px;
+      		box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, .2);
 		}
 		#resetDashboard:hover {
 			color: #eee;
@@ -191,7 +192,7 @@
 			display: flex;
 			flex-direction: column;
 			position: relative;
-			top: 100px;
+			top: 106px;
 			margin: 0 12px auto 0;
 			width: 210px;
 			min-width: 210px;
@@ -210,13 +211,13 @@
 			border: none;
 			border-bottom: 1px solid #ddd;
 			cursor: pointer;
-			font-family: Arial, Helvetica, sans-serif;
 			background-color: white;
 		}
 		.navRadioButton input {
 			position: absolute;
 			opacity: 0;
 			cursor: pointer;
+      		pointer-events: none;
 		}
 		.radioTextContainer {
       		all: unset;
@@ -240,12 +241,12 @@
 			position: absolute;
 			top: 9px;
 			left: 9px;
-			color: #9D9A9A;
+			color: #999;
 		}
 		.arrowBackground {
 			margin: 0;
 			pointer-events: none;
-			background-color: #F8F8F8;
+			background-color: #f7f7f7;
 			width: 30px;
 			min-width: 30px;
 			height: 100px;
@@ -255,7 +256,7 @@
 		}
 		.arrow {
 			border: solid #007097;
-  			border-width: 0 2px 2px 0;
+			border-width: 0 2px 2px 0;
 			display: inline-block;
 			padding: 6px;
 			transform: rotate(-45deg);
@@ -312,7 +313,6 @@
 			onFirstInteractive: function() {
 				var resetButton = document.getElementById("resetDashboard");
 				resetButton.style.visibility = "visible";
-				resetButton.style.pointerEvents = "none";
 				resetButton.addEventListener("click", function() {
 					resetButton.style.backgroundColor = "#9D9A9A";
 					var url = viz.getWorkbook().getActiveSheet().getUrl();
@@ -360,7 +360,6 @@
 
 		function onFilterChange() {
 			var resetButton = document.getElementById("resetDashboard");
-			resetButton.style.pointerEvents = "unset";
 			resetButton.style.backgroundColor = "#800000";
 		}
 
@@ -380,20 +379,22 @@
 				radioButtons[i].style.backgroundColor = "#fff";
 				radioButtons[i].style.color = "black";
 				radioButtons[i].getElementsByClassName("code")[0].style.color = "#bbb";
-				radioButtons[i].getElementsByClassName("arrowBackground")[0].style.backgroundColor = "#F8F8F8";
+				radioButtons[i].getElementsByClassName("arrowBackground")[0].style.backgroundColor = "#F7F7F7";
 				radioButtons[i].getElementsByClassName("arrow")[0].style.borderColor = "rgb(74, 109, 147)";
 			}
 		}
 
 		function onRadioButtonMouseEnter() {
 			if (!event.target.firstChild.checked) {
-				event.target.style.backgroundColor = "#F8F8F8";
+				event.target.style.backgroundColor = "#f2f2f2";
+				event.target.getElementsByClassName("arrowBackground")[0].style.backgroundColor = "#f2f2f2";
 			}
 		}
 
 		function onRadioButtonMouseLeave() {
 			if (!event.target.firstChild.checked) {
 				event.target.style.backgroundColor = "#fff";
+				event.target.getElementsByClassName("arrowBackground")[0].style.backgroundColor = "#f7f7f7";
 			}
 		}
 
