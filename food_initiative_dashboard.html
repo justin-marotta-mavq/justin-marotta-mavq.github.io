@@ -62,17 +62,38 @@
 			all: unset;
 			scale: 80%;
 			margin: 0;
-			padding: 0;
+			padding: 0px 0px 0px 12px;
 			display: flex;
 			flex-direction: column;
       		position: relative;
 			top: -200px;
-			left: -132px;
-     		width: 1324px;
-			height: 2000px;
+			left: -172px;
+     		width: 1548px;
+			margin-top: 60px;
+			margin-bottom: -200px;
 			font-size: 15px;
 			font-family: Arial, Helvetica, sans-serif;
-      		color: black;
+			color: black;
+			background-color: white;
+			box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, .2);
+			border-radius: 6px;
+			border: 1px solid #ddd;
+		}
+		@media only screen and (max-width: 980px) {
+			#mavQContainer {
+				scale: 50%;
+				left: -386px;
+				top: -500px;
+				margin-bottom: -900px;
+			}
+		}
+		@media only screen and (max-width: 400px) {
+			#mavQContainer {
+				scale: 25%;
+				top: -730px;
+				left: -586px;
+				margin-bottom: -1200px;
+			}
 		}
 		#mainContent {
       		all: unset;
@@ -86,11 +107,16 @@
 		#viewAsPDF {
 			all: unset;
 			margin: 0;
-			padding: 0;
+			padding: 6px 9px 4px 9px;
 			position: absolute;
-			top: 12px;
-			width: fit-content;
+			top: 20px;
+			width: 126px;
 			height: 30px;
+      		color: black;
+      		background-color: #ccc;
+			border-radius: 12px;
+      		box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, .2);
+			font-weight: bold;
 		}
 		#viewAsPDF:hover {
 			cursor: pointer;
@@ -101,8 +127,9 @@
 			visibility: hidden;
 			z-index: 1;
 			margin: 6px 0 0 0;
-			background-color: #9D9A9A;
-			color: white;
+      		padding: 0 0 0 21px;
+			background-color: #ccc;
+			color: black;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
@@ -110,18 +137,20 @@
 			cursor: pointer;
 			border-radius: 12px;
 			border: none;
-			height: 39px;
-			width: 90px;
+			height: 36px;
+			width: 123px;
 			position: absolute;
-			top: 45px;
+			top: 80px;
       		box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, .2);
+			font-weight: bold;
 		}
 		#resetDashboard:hover {
-			color: #eee;
+			color: #777;
 		}
 		#resetArrow {
-			position: relative;
-			margin: 0 9px 0 0;
+			position: absolute;
+			top: 2px;
+      		left: 30px;
 			font-size: 21px;
 		}
 		#navPanel {
@@ -129,8 +158,8 @@
 			display: flex;
 			flex-direction: column;
 			position: relative;
-			top: 106px;
-			margin: 0 12px auto 0;
+			top: 150px;
+			margin: 0 0 auto 0;
 			width: 210px;
 			min-width: 210px;
 			border-radius: 9px;
@@ -168,10 +197,11 @@
 			margin: 0;
 			pointer-events: none;
 			position: absolute;
-			bottom: 6px;
+      		top: 40px;
 			left: 9px;
       		line-height: 1.25;
 			width: 170px;
+      		height: 100px;
 		}
 		.code {
       		all: unset;
@@ -204,7 +234,7 @@
 		}
 		.star {
 			position: relative;
-			top: -8px;
+			top: 8px;
 			left: -100px;
 			color: #E8B915;
       		pointer-events: none;
@@ -214,7 +244,10 @@
 			background-color: rgb(12, 12, 35);
 			color: rgb(121, 128, 171);
 			text-align: center;
-      		width: 1524px;
+			width: 1561px;
+			position: relative;
+			left: -12px;
+			bottom: -15px;
 		}
 		#poweredContainer {
 			display: flex;
@@ -245,15 +278,14 @@
 		var url = "https://public.tableau.com/views/NMHungerInitiativeDashboard_ReplaceDataSource_withchangeRequest_CommunitySupplyNMGrown/BudgetDashboardFigma?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link";
 		var options = {
 			hideTabs: true,
-			width: "1300px",
-			height: "1830px",
+			width: "1500px",
+			height: "1880px",
 			onFirstInteractive: function() {
 				var resetButton = document.getElementById("resetDashboard");
 				resetButton.style.visibility = "visible";
 				resetButton.addEventListener("click", function() {
-					resetButton.style.backgroundColor = "#9D9A9A";
 					var url = viz.getWorkbook().getActiveSheet().getUrl();
-					switchDashboard(options.height, url);
+					switchDashboard(url);
 				});
 			}
 		};
@@ -267,7 +299,7 @@
 			radioButtons[i].addEventListener("mouseenter", onRadioButtonMouseEnter);
 			radioButtons[i].addEventListener("mouseleave", onRadioButtonMouseLeave);
 		}
-		radioButtons[3].style.border = "none";
+		radioButtons[9].style.border = "none";
 
 		checkRadioButton(radioButtons[0]);
 
@@ -290,13 +322,15 @@
 			viz.addEventListener('parametervaluechange', onFilterChange);
 
 			var resetButton = document.getElementById("resetDashboard");
-			resetButton.style.backgroundColor = "#9D9A9A";
+			resetButton.style.backgroundColor = "#ccc";
+			resetButton.style.color = "black";
 			resetButton.style.visibility = "hidden";
 		}
 
 		function onFilterChange() {
 			var resetButton = document.getElementById("resetDashboard");
 			resetButton.style.backgroundColor = "#800000";
+      		resetButton.style.color = "white";
 		}
 
 		function checkRadioButton(button) {
@@ -335,11 +369,12 @@
 		}
 
 		function downloadPDF() {
-			var vizUrl = viz.getWorkbook().getActiveSheet().getUrl();
-			var workbookName = vizUrl.split("/")[4];
-			var sheetName = vizUrl.split("/")[5];
-			var url = "https://public.tableau.com/views/" + workbookName + "/" + sheetName + ".pdf?%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true&%3Aembed=true&%3Alanguage=en-US&:embed=y&:showVizHome=n&:apiID=host0#navType=0&navSrc=Parse";
-			window.open(url, '_blank');
+			//var vizUrl = viz.getWorkbook().getActiveSheet().getUrl();
+			//var workbookName = vizUrl.split("/")[4];
+			//var sheetName = vizUrl.split("/")[5];
+			//var url = "https://public.tableau.com/views/" + workbookName + "/" + sheetName + ".pdf?%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true&%3Aembed=true&%3Alanguage=en-US&:embed=y&:showVizHome=n&:apiID=host0#navType=0&navSrc=Parse";
+			//window.open(url, '_blank');
+      		viz.showExportPDFDialog();
 		}
 	</script>
 </html>
