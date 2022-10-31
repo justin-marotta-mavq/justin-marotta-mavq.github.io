@@ -6,7 +6,7 @@
 			<button id="resetDashboard"><p id="resetArrow">↺</p>RESET</button>
 			<p id="viewAsPDF" onclick="downloadPDF()">View or Print PDF</p>
 			<div id="navPanel">
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/NMHungerInitiativeDashboard_ReplaceDataSource_withchangeRequest_CommunitySupplyNMGrown/BudgetDashboardFigma?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/NMFoodHungerInitiativeDashboard/BudgetDashboard?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
 					<span class="radioTextContainer">
 						<p class="code">HI_01</p>
 						<p class="radioText">Food Initiative<br>General Fund Budget</p>
@@ -16,7 +16,7 @@
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/NMHungerInitiativeDashboard_ReplaceDataSource_withchangeRequest_CommunitySupplyNMGrown/CommunityFoodProgramsfigma?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/NMFoodHungerInitiativeDashboard/CommunityFoodPrograms?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
 					<span class="radioTextContainer">
 						<p class="code">HI_02</p>
 						<p class="radioText">Community Food Programs and<br>Supply Chain</p>
@@ -26,7 +26,7 @@
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/NMHungerInitiativeDashboard_ReplaceDataSource_withchangeRequest_CommunitySupplyNMGrown/NewMexicoGrownfigma?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/NMFoodHungerInitiativeDashboard/NewMexicoGrown?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
 					<span class="radioTextContainer">
 						<p class="code">HI_03</p>
 						<p class="radioText">New Mexico Grown</p>
@@ -36,7 +36,17 @@
 						<span class="arrow"></span>
 					</span>
 				</div>
-				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/NMHungerInitiativeDashboard_ReplaceDataSource_withchangeRequest_CommunitySupplyNMGrown/SelfReportedFunding?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/NMFoodHungerInitiativeDashboard/SelfReportedFunding?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
+					<span class="radioTextContainer">
+						<p class="code">HI_04</p>
+						<p class="radioText">Self Reported Funding</p>
+					</span>
+					<input type="radio">
+					<span class="arrowBackground">
+						<span class="arrow"></span>
+					</span>
+				</div>
+				<div class="navRadioButton" onclick="onSwitchDashboard('https://public.tableau.com/views/NMFoodHungerInitiativeDashboard/Glossary?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link')">
 					<span class="radioTextContainer">
 						<p class="code">HI_04</p>
 						<p class="radioText">Self Reported Funding</p>
@@ -275,7 +285,7 @@
 	</style>
 	<script>
 		var placeholderDiv = document.getElementById("tableauViz");
-		var url = "https://public.tableau.com/views/NMHungerInitiativeDashboard_ReplaceDataSource_withchangeRequest_CommunitySupplyNMGrown/BudgetDashboardFigma?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link";
+		var url = "https://public.tableau.com/views/NMFoodHungerInitiativeDashboard/BudgetDashboard?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link";
 		var options = {
 			hideTabs: true,
 			width: "1500px",
@@ -299,7 +309,7 @@
 			radioButtons[i].addEventListener("mouseenter", onRadioButtonMouseEnter);
 			radioButtons[i].addEventListener("mouseleave", onRadioButtonMouseLeave);
 		}
-		radioButtons[9].style.border = "none";
+		radioButtons[4].style.border = "none";
 
 		checkRadioButton(radioButtons[0]);
 
